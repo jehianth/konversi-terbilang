@@ -47,13 +47,14 @@ void konversi(int n){
     
     satuan    = n%10;
 
-    if (puluhjuta>1){
+    if (puluhjuta>1 && juta >0){
+        printnilai(nilai,puluhjuta);
+        printf ("puluh ");
+    }
+    if (puluhjuta>1 && juta <=0){
         printnilai(nilai,puluhjuta);
         printf ("puluh juta ");
     }
-    /*if (puluhjuta>1 && juta <=0){
-        printf ("juta ");
-    }*/
     if(puluhjuta==1 && juta==1){
         printf("sebelas juta ");
     }
@@ -61,7 +62,7 @@ void konversi(int n){
         printnilai(nilai,juta);
         printf ("belas juta ");
     }
-    if (puluhjuta==1 && juta<=0){
+    if(puluhjuta==1 && juta<=0){
         printf ("sepuluh juta ");
     }
     if(puluhjuta>1 && juta>=1){
@@ -72,10 +73,14 @@ void konversi(int n){
         printnilai(nilai,juta);
         printf ("juta ");
     }
-    if(ratusrb==1){
+    
+    if(ratusrb==1 && puluhrb>0){
+        printf ("seratus ");
+    }
+    if(ratusrb==1 && puluhrb<0){
         printf ("seratus ribu ");
     }
-    if (ratusrb >1 && puluhrb>0){
+    if(ratusrb >1 && puluhrb>0){
         printnilai(nilai,ratusrb);
         printf ("ratus ");
     }
@@ -83,14 +88,15 @@ void konversi(int n){
         printnilai(nilai,ratusrb);
         printf("ratus ribu ");
     }
-    if (puluhrb==1 && ribu<=0){
+    
+    if(puluhrb==1 && ribu<=0){
         printf("sepuluh ");
     }
-    if (puluhrb>1){
+    if(puluhrb>1){
         printnilai(nilai,puluhrb);
         printf("puluh ");
     }
-    if (puluhrb>=1&&ribu<=0){
+    if(puluhrb>=1&&ribu<=0){
         printf("ribu ");
     }
     if(puluhrb==1 && ribu==1){
@@ -100,9 +106,10 @@ void konversi(int n){
         printnilai(nilai,ribu);
         printf ("belas ribu ");
     }
-    if (puluhrb<=0&&ribu==1){
+    if(puluhrb<=0&&ribu==1){
         printf("seribu ");
     }
+    
     if(ribu >=1 && puluhrb>1){
         printnilai(nilai,ribu);
         printf ("ribu ");
@@ -111,27 +118,30 @@ void konversi(int n){
         printnilai(nilai,ribu);
         printf ("ribu ");
     }
-    if (ratus==1){
+    
+    if(ratus==1){
         printf ("seratus ");
     }
-    if (ratus>1){
+    if(ratus>1){
         printnilai(nilai,ratus);
         printf ("ratus ");
     }
-    if (puluh==1 && satuan <=0){
+    
+    if(puluh==1 && satuan <=0){
         printf("sepuluh ");
     }
-    if (puluh>1){
+    if(puluh>1){
         printnilai(nilai,puluh);
         printf ("puluh ");
     }
-     if(puluh==1 && satuan==1){
+    if(puluh==1 && satuan==1){
         printf("sebelas ");
     }
     if(puluh==1 && satuan>1){
         printnilai(nilai,satuan);
         printf ("belas ");
     }
+    
     if (satuan>0 && puluh<1 || puluh>1){
         printnilai(nilai,satuan);
     }
@@ -152,7 +162,7 @@ int main(){
             printf("Angka yang anda masukan salah\n");
             printf ("\n");
         }
-        if(x<1){
+        if(x<0){
             printf("Angka yang anda masukan salah\n");
             printf ("\n");
         }
