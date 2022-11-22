@@ -15,11 +15,11 @@ char nilai[][10] = {{" "},{"satu "},{"dua "},{"tiga "},{"empat "},{"lima "},{"en
 };*/
 
 void printnilai(char a[][10], int n){
-    printf("%s", a[n]);
+    printf ("%s",a[n]);
 }
 
 void konversi(int n){
-    int puluhjuta,juta,ratusrb,puluhrb,ribu,ratus,puluh,satuan;
+    int puluhjuta, juta, ratusrb, puluhrb, ribu, ratus, puluh, satuan;
 
     //modulus 1 angka setelahkan agar mendapatkan angka sisa bagi yang dinginkan
     //di bagi dengan jumlah 0 di rentang ankga yang sama untuk mengambil angka indeks di array nilai[]
@@ -69,7 +69,10 @@ void konversi(int n){
     if(ratusrb==1 && puluhrb>0){
         printf ("seratus ");
     }
-    if(ratusrb==1 && puluhrb<=0){
+    if(ratusrb==1 && puluhrb<=0 && ribu>0){
+        printf ("seratus ");
+    }
+    if(ratusrb==1 && puluhrb<=0 && ribu<=0){
         printf ("seratus ribu ");
     }
     if(ratusrb >1 && puluhrb>0){
@@ -138,27 +141,20 @@ void konversi(int n){
 int main(){
     int x;
     bool cari = false;
-    printf("===========================\n");
-    printf("Program Konversi Terbilang\n");
-    printf("Masukan angka rentang 0 rupiah - 99 juta rupiah\n");
-    printf("\n");
+    
     while (cari==false){
-        printf("Silahkan masukan angka : ");
+        printf("Masukan angka rentang 1 rupiah - 99 juta rupiah : ");
         scanf("%d",&x);
-        if(x>99999990){
+        if(x>99999999){
             printf("Angka yang anda masukan salah\n");
             printf ("\n");
-        }
-        if(x<0){
+        }else if(x<0){
             printf("Angka yang anda masukan salah\n");
             printf ("\n");
-        }
-        else {
-        konversi(x);
-        printf("\n");
-        printf("Program Selesai ^-^\n");
-        printf("===========================");
-        cari=true;
+        }else{
+            konversi(x);
+            printf("\n");
+            cari=true;
         }
     }
     return 0;
