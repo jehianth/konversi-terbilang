@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 
 char nilai[][10] = {{" "},{"satu "},{"dua "},{"tiga "},{"empat "},{"lima "},{"enam "},{"tujuh "},{"delapan "},{"sembilan "}};
 
@@ -14,44 +14,37 @@ char nilai[][10] = {{" "},{"satu "},{"dua "},{"tiga "},{"empat "},{"lima "},{"en
     char *ratus;
 };*/
 
-void printnilai(char a[][10],int n){
-    printf ("%s",a[n]);
+void printnilai(char a[][10], int n){
+    printf("%s", a[n]);
 }
 
 void konversi(int n){
     int puluhjuta,juta,ratusrb,puluhrb,ribu,ratus,puluh,satuan;
 
-    //modulus 1 angka setelahnya agar mendapatkan angka sisa bagi yang dinginkan
-    //di bagi dengan jumlah 0 di rentang angka yang sama untuk mengambil angka indeks di array nilai[]
+    //modulus 1 angka setelahkan agar mendapatkan angka sisa bagi yang dinginkan
+    //di bagi dengan jumlah 0 di rentang ankga yang sama untuk mengambil angka indeks di array nilai[]
 
     puluhjuta = n%100000000;
     puluhjuta = puluhjuta/10000000;
-    
     juta      = n%10000000;
     juta      = juta/1000000;
-    
     ratusrb   = n%1000000;
     ratusrb   = ratusrb/100000;
-    
     puluhrb   = n%100000;
     puluhrb   = puluhrb/10000;
-    
     ribu      = n%10000;
     ribu      = ribu/1000;
-    
     ratus     = n%1000;
     ratus     = ratus/100;
-    
     puluh     = n%100;
     puluh     = puluh/10;
-    
     satuan    = n%10;
 
-    if (puluhjuta>1 && juta >0){
+    if(puluhjuta>1 && juta >0){
         printnilai(nilai,puluhjuta);
         printf ("puluh ");
     }
-    if (puluhjuta>1 && juta <=0){
+    if(puluhjuta>1 && juta <=0){
         printnilai(nilai,puluhjuta);
         printf ("puluh juta ");
     }
@@ -73,11 +66,10 @@ void konversi(int n){
         printnilai(nilai,juta);
         printf ("juta ");
     }
-    
     if(ratusrb==1 && puluhrb>0){
         printf ("seratus ");
     }
-    if(ratusrb==1 && puluhrb<0){
+    if(ratusrb==1 && puluhrb<=0){
         printf ("seratus ribu ");
     }
     if(ratusrb >1 && puluhrb>0){
@@ -88,7 +80,6 @@ void konversi(int n){
         printnilai(nilai,ratusrb);
         printf("ratus ribu ");
     }
-    
     if(puluhrb==1 && ribu<=0){
         printf("sepuluh ");
     }
@@ -109,7 +100,6 @@ void konversi(int n){
     if(puluhrb<=0&&ribu==1){
         printf("seribu ");
     }
-    
     if(ribu >=1 && puluhrb>1){
         printnilai(nilai,ribu);
         printf ("ribu ");
@@ -118,7 +108,6 @@ void konversi(int n){
         printnilai(nilai,ribu);
         printf ("ribu ");
     }
-    
     if(ratus==1){
         printf ("seratus ");
     }
@@ -126,7 +115,6 @@ void konversi(int n){
         printnilai(nilai,ratus);
         printf ("ratus ");
     }
-    
     if(puluh==1 && satuan <=0){
         printf("sepuluh ");
     }
@@ -141,8 +129,7 @@ void konversi(int n){
         printnilai(nilai,satuan);
         printf ("belas ");
     }
-    
-    if (satuan>0 && puluh<1 || puluh>1){
+    if(satuan>0 && puluh<1 || puluh>1){
         printnilai(nilai,satuan);
     }
     printf("rupiah\n");
@@ -156,7 +143,7 @@ int main(){
     printf("Masukan angka rentang 0 rupiah - 99 juta rupiah\n");
     printf("\n");
     while (cari==false){
-        printf("Silakan masukan angka : ");
+        printf("Silahkan masukan angka : ");
         scanf("%d",&x);
         if(x>99999990){
             printf("Angka yang anda masukan salah\n");
