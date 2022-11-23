@@ -1,9 +1,7 @@
 #include <iostream>
 using namespace std;
-#define LL long long
-#define LD long double
 
-void satuan (int a){
+void angkadasar (int a){
     if (a==1) {cout<<"Satu ";}
     if (a==2) {cout<<"Dua ";}
     if (a==3) {cout<<"Tiga ";}
@@ -17,9 +15,9 @@ void satuan (int a){
     if (a==11) {cout<<"Sebelas ";}
 }
 
-void terbilang (LL b){
-    if (b<=11) {satuan(b);} 
-    if ((b>11) && (b<=19)){
+void terbilang (long long b) {
+    if (b<=11) {angkadasar(b);} 
+    if ((b>11) && (b<=19)) {
         terbilang(b%10); 
         cout<<"Belas ";
     }   
@@ -61,28 +59,23 @@ void terbilang (LL b){
         cout<<"Juta "; 
         terbilang (b%1000000);
     }
-    if ((b>=1000000000)&&(b<=999999999999)){ 
+    if ((b>=1000000000)&&(b<=999999999999)) { 
         terbilang (b/1000000000); 
         cout<<"Miliar "; 
         terbilang (b%1000000000);
     }
 }
 
-int main(){
-    LD nilai;
-    bool cari=false;
+int main() {
+    long double nilai;
+    cout<<"Input nilai 1-999 juta rupiah : "; cin>>nilai;
     
-    while (cari==false) {
-        cout<<"Input Angka: "; cin>>nilai;
-        if(nilai>999999999999){
-            cout<<"Angka yang anda inputkan salah" << endl; cout << endl;
-        }else if(nilai<1){
-            cout<<"Angka yang anda inputkan salah" << endl; cout << endl;
-        }else{
-            terbilang(nilai);
-            cari=true;
-        }
+    if (nilai>999999999999) {
+        cout<<"Angka yang anda inputkan diluar jangkauan";
+    } else if (nilai<1) {
+        cout<<"Angka yang anda inputkan diluar jangkauan";
+    } else {
+        terbilang(nilai);
+        cout<<"Rupiah";
     }
-    
-    cout<<"Rupiah";
 }
